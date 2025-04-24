@@ -5,14 +5,16 @@ public class Jugador {
     public String posicion;
     public int edad;
     public int numero_camisa;
+    public int salario;
 
     // Constructor
 
-    public Jugador(String nombre, String posicion , int edad, int numero_camisa){
+    public Jugador(String nombre, String posicion , int edad, int numero_camisa, int salario) {
         this.nombre = nombre;
         this.posicion = posicion;
         this.edad = edad;
         this.numero_camisa = numero_camisa;
+        this.salario = salario;
     }
 
     // Método estatico
@@ -22,6 +24,7 @@ public class Jugador {
         System.out.println("Posición: " + posicion);
         System.out.println("Edad: " + edad + " años");
         System.out.println("Número de camiseta: " + numero_camisa);
+        System.out.println("Salario: " + salario);
     }
     public static Jugador presentar1(){
         Scanner scanner = new Scanner(System.in);
@@ -39,7 +42,10 @@ public class Jugador {
         System.out.print("Ingrese el número de camiseta: ");
         int numero_camisa = scanner.nextInt();
 
-        return new Jugador(nombre, posicion, edad, numero_camisa);
+        System.out.print("Ingrese la salario: ");
+        int salario = scanner.nextInt();
+
+        return new Jugador(nombre, posicion, edad, numero_camisa, salario);
     }
 
 }
