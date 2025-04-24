@@ -6,6 +6,7 @@ public class Main {
 
         System.out.println("SISTEMA DE GESTIÓN DE EMPLEADOS");
         System.out.println("-------------------------------");
+        //hoollalalas
 
         // Crear 3 empleados solicitando datos al usuario
         Empleado empleado1 = Empleado.crearEmpleado(scanner, 1);
