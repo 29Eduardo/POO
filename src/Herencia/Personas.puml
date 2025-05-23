@@ -1,0 +1,46 @@
+
+@startuml
+
+class Persona {
+    + cedula : String
+    + nombre : String
+    + dirección : String
+    + teléfono : String
+    + correo : String
+
+    + MostrarInformacionPersonal() : void
+}
+
+class Estudiante {
+    + carrera : String
+    + nivel : String
+
+    + CalcularEdad() : int
+
+}
+
+class Docente {
+    + Facultad_pertenece : String
+    + HorasAsignadasClases : int
+}
+
+class Estudiante_presencial {
+    + hora_presencial : int
+    + horario : int
+}
+class Estudiante_virtual {
+    + plataforma : String
+    + tutor_virtual : String
+}
+
+class Docente_virtual {
+    + Materia : Strign
+    + Plataforma_clases : Strign
+}
+Persona <|-- Estudiante
+Persona <|-- Docente
+Estudiante <|-- Estudiante_presencial
+Estudiante <|-- Estudiante_virtual
+Docente <|-- Docente_virtual
+
+@enduml
