@@ -1,0 +1,70 @@
+@startuml SistemaPasajesElBuho
+
+' Definición de clases
+class Pasajero {
+  - nombre: String
+  - cedula: String
+  - telefono: String
+  + getNombre(): String
+  + setNombre(nombre: String): void
+  + imprimirDatos(): void
+}
+
+class Ruta {
+  - origen: String
+  - destino: String
+  - precioBase: double
+  + getOrigen(): String
+  + calcularCosto(): double
+  + imprimirDatos(): void
+}
+
+abstract class ServicioBase {
+  # tipo: String
+  # maletas: int
+  + {abstract} calcularCosto(precioBase: double): double
+  + imprimirDatos(): void
+}
+
+class Normal {
+  - ubicacionAsiento: String
+  - maletaAdicional: boolean
+  + calcularCosto(precioBase: double): double
+  + imprimirDatos(): void
+}
+
+class ServicioVIP {
+  - serviciosAdicionales: ServicioAd
+  - maletaAdicional: boolean
+  + calcularCosto(precioBase: double): double
+  + imprimirDatos(): void
+}
+
+class ServicioAd {
+  - wifi: boolean
+  - tv: boolean
+  - otrosServicios: String
+  + imprimirDatos(): void
+}
+
+class Ticket {
+  - pasajero: Pasajero
+  - ruta: Ruta
+  - servicio: ServicioBase
+  - asiento: String
+  - fecha: String
+  + calcularCostoTotal(): double
+  + imprimirTicket(): void
+}
+
+' Relaciones de herencia
+ServicioBase <|-- Normal
+ServicioBase <|-- ServicioVIP
+
+' Relaciones de composición/agregación
+Ticket "1" *-- "1" Pasajero
+Ticket "1" *-- "1" Ruta
+Ticket "1" *-- "1" ServicioBase
+ServicioVIP "1" *-- "1" ServicioAd
+
+@enduml
